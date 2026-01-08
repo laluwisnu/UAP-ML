@@ -1,72 +1,61 @@
 # UAP-ML
 
-🖼️ COCO Semantic Image Search - UAP Pembelajaran Mesin
-Proyek ini adalah aplikasi web berbasis Streamlit yang memungkinkan pengguna mencari gambar dari dataset COCO menggunakan prompt teks. Aplikasi ini mengintegrasikan tiga model Deep Learning (CNN) untuk melakukan klasifikasi gambar secara real-time.
+Semantic Image Search & Classification
+Proyek ini dibuat untuk memenuhi tugas Ujian Akhir Praktikum (UAP) Pembelajaran Mesin. Aplikasi ini mengintegrasikan pencarian gambar berdasarkan teks (Semantic Search) dengan klasifikasi gambar menggunakan tiga arsitektur Deep Learning yang berbeda.
 
-🌟 Fitur Utama
-Semantic Search: Mencari kategori gambar (misal: person, motorcycle, dog) langsung dari kalimat input pengguna.
+👥 Profil
+Nama: [Isi Nama Anda]
 
-Multi-Model Evaluation: Membandingkan hasil prediksi dari 3 arsitektur berbeda:
+NIM: [Isi NIM Anda]
 
-Base CNN: Arsitektur sederhana buatan sendiri.
+Mata Kuliah: Praktikum Pembelajaran Mesin
 
-MobileNetV2: Model pretrained yang ringan dan cepat.
+📄 Deskripsi Proyek
+Aplikasi ini memungkinkan pengguna untuk memasukkan prompt teks, kemudian sistem akan mencari gambar yang relevan dari dataset COCO. Gambar tersebut kemudian diklasifikasikan menggunakan model yang dipilih oleh pengguna untuk memverifikasi akurasi prediksi model terhadap label asli.
 
-ResNet50: Model pretrained yang lebih dalam dan akurat.
+🛠️ Arsitektur Model
+Proyek ini menggunakan 3 variasi model untuk perbandingan performa:
 
-Metadata Integration: Menampilkan caption asli dari dataset COCO untuk memberikan konteks pada gambar.
+Base CNN: Model sederhana yang dibangun dari nol.
 
-🏗️ Struktur Folder
-Pastikan struktur folder Anda terlihat seperti ini agar aplikasi berjalan lancar:
+MobileNetV2: Model Pre-trained yang dioptimalkan untuk perangkat mobile/ringan.
 
+ResNet50: Model Pre-trained dengan residual connections untuk akurasi tinggi.
+
+📁 Struktur File
 Plaintext
 
-UAP_NILAI/
-├── app.py                     # File utama aplikasi Streamlit
-├── metadata_final.csv         # File CSV berisi path gambar, label, dan caption
-├── model_base_cnn.keras       # Model Base CNN (Full Model)
-├── model_mobilenet.weights.h5 # Bobot Model MobileNetV2
-├── model_resnet.keras         # Model ResNet50 (Full Model)
-├── val2017/                   # Folder berisi kumpulan gambar dataset COCO
-└── README.md                  # Dokumentasi proyek
-🚀 Cara Instalasi & Menjalankan
-1. Persiapan Environment
-Pastikan Anda sudah menginstal Python (disarankan versi 3.10+). Buat virtual environment untuk menjaga kebersihan library:
-
-Bash
-
-python -m venv env
-env\Scripts\activate  # Untuk Windows
-2. Instalasi Library
-Instal semua dependensi yang diperlukan melalui terminal:
+.
+├── app.py                      # Script utama Streamlit
+├── metadata_final.csv          # Metadata dataset (Path, Label, Caption)
+├── model_base_cnn.keras        # Model Base CNN (Format Keras 3)
+├── model_mobilenet.weights.h5  # Bobot Model MobileNetV2
+├── model_resnet.keras          # Model ResNet50
+├── val2017/                    # Folder berisi dataset gambar COCO
+└── README.md                   # Dokumentasi ini
+⚙️ Prasyarat (Prerequisites)
+Pastikan Anda memiliki Python 3.9 atau versi yang lebih baru. Install library yang dibutuhkan menggunakan perintah berikut:
 
 Bash
 
 pip install streamlit tensorflow pandas pillow numpy
-3. Menjalankan Aplikasi
-Jalankan perintah berikut di folder proyek:
+🚀 Cara Menjalankan
+Pastikan semua file model dan folder val2017 berada di direktori yang sama dengan app.py.
+
+Buka terminal atau command prompt.
+
+Jalankan perintah:
 
 Bash
 
 streamlit run app.py
-🧠 Alur Kerja Aplikasi
-Input: User memasukkan teks (contoh: "I see a person with a dog").
+Buka alamat URL yang muncul (biasanya http://localhost:8501) di browser Anda.
 
-Matching: Aplikasi mengekstrak kata kunci (label) dari teks tersebut.
+💡 Cara Penggunaan
+Pilih model yang ingin digunakan pada bagian Sidebar.
 
-Retrieval: Sistem mengambil sampel gambar yang relevan dari metadata_final.csv.
+Masukkan kata kunci atau kalimat pada kolom input (contoh: "a person riding a motorcycle").
 
-Inference: Gambar diproses oleh model yang dipilih di sidebar untuk diprediksi labelnya.
+Sistem akan mendeteksi label dan menampilkan gambar yang sesuai.
 
-Output: Menampilkan gambar, skor kepercayaan model (% confidence), dan caption asli.
-
-🛠️ Detail Arsitektur Model (MobileNetV2)
-Untuk mengatasi masalah kompatibilitas versi, model MobileNetV2 dibangun menggunakan metode Reconstruct & Load Weights:
-
-Base: MobileNetV2 (Feature Extractor)
-
-Global Average Pooling: Reduksi dimensi.
-
-Dense Layer (128 units): Lapisan tersembunyi dengan aktivasi ReLU.
-
-Output Layer (5 units): Softmax untuk klasifikasi multi-kelas.
+Lihat hasil prediksi model dan bandingkan dengan caption asli gambar.
