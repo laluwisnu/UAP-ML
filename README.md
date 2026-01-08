@@ -4,11 +4,9 @@ Semantic Image Search & Classification
 Proyek ini dibuat untuk memenuhi tugas Ujian Akhir Praktikum (UAP) Pembelajaran Mesin. Aplikasi ini mengintegrasikan pencarian gambar berdasarkan teks (Semantic Search) dengan klasifikasi gambar menggunakan tiga arsitektur Deep Learning yang berbeda.
 
 👥 Profil
-Nama: [Isi Nama Anda]
-
-NIM: [Isi NIM Anda]
-
+Nama: [Lalu Muhammad Wisnu Yusuf]
 Mata Kuliah: Praktikum Pembelajaran Mesin
+
 
 📄 Deskripsi Proyek
 Aplikasi ini memungkinkan pengguna untuk memasukkan prompt teks, kemudian sistem akan mencari gambar yang relevan dari dataset COCO. Gambar tersebut kemudian diklasifikasikan menggunakan model yang dipilih oleh pengguna untuk memverifikasi akurasi prediksi model terhadap label asli.
